@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+    body {
+        /* background-image: url("https://media.istockphoto.com/id/939051814/vector/medical-interface.jpg?s=612x612&w=0&k=20&c=TFLFebwbKvc65m1OC1vN2EUS2fcFUWwFfItwaFtG7v8="); */
+        background-image: url('{{ url_for("static", filename="new.jpg") }}');
+        background-size: cover;
+        background-position: center center;
+        margin: 0;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+    }
+    .centered-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* height: 100vh; */
+    }
+    .form {
+
+        padding: 20px;
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .form-section{
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 20%;
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+    }
+    .form input[type="number"] {
+        width: 70%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h1 {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 5px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <div class="centered-container">
+        <h1>Disease</h1>
+        <form class="form fform" action="http://127.0.0.1:5000/prediction" target="_main" method="post">
+<!-- Form section 1 -->
+<div class="form-section">
+    <h3>Section 1</h3>
+    <ol>
+        <li> <span>itching</span> </li> 
+        <input type="number" placeholder="Enter value" name="itching">
+        <br> <br>
+
+        <li> <span>skin_rash</span> </li> 
+        <input type="number" placeholder="Enter value" name="skin_rash">
+        <br> <br>
+
+        <li> <span>nodal_skin_eruptions</span> </li> 
+        <input type="number" placeholder="Enter value" name="nodal_skin_eruptions">
+        <br> <br>
+
+        <li> <span>dischromic_patches</span> </li> 
+        <input type="number" placeholder="Enter value" name="dischromic_patches">
+        <br> <br>
+
+        <li> <span>continuous_sneezing</span> </li> 
+        <input type="number" placeholder="Enter value" name="continuous_sneezing">
+        <br> <br>
+
+        <li> <span>shivering</span> </li> 
+        <input type="number" placeholder="Enter value" name="shivering">
+        <br> <br>
+
+        <li> <span>chills</span> </li> 
+        <input type="number" placeholder="Enter value" name="chills">
+        <br> <br>
+
+        <li> <span>watering_from_eyes</span> </li> 
+        <input type="number" placeholder="Enter value" name="watering_from_eyes">
+        <br> <br>
+
+
+
+        </ol>
+    </div>
+
+    <!-- Form section 2 -->
+    <div class="form-section">
+        <h3>Section 2</h3>
+        <ol>
+            <li> <span>stomach_pain</span> </li> 
+            <input type="number" placeholder="Enter value" name="stomach_pain">
+            <br> <br>
+
+            <li> <span>acidity</span> </li> 
+            <input type="number" placeholder="Enter value" name="acidity">
+            <br> <br>
+
+            <li> <span>ulcers_on_tongue</span> </li> 
+            <input type="number" placeholder="Enter value" name="ulcers_on_tongue">
+            <br> <br>
+
+            <li> <span>vomiting</span> </li> 
+            <input type="number" placeholder="Enter value" name="vomiting">
+            <br> <br>
+
+            <li> <span>cough</span> </li> 
+            <input type="number" placeholder="Enter value" name="cough">
+            <br> <br>
+
+            <li> <span>chest_pain</span> </li> 
+            <input type="number" placeholder="Enter value" name="chest_pain">
+            <br> <br>
+
+            <li> <span>yellowish_skin</span> </li> 
+            <input type="number" placeholder="Enter value" name="yellowish_skin">
+            <br> <br>
+
+            <li> <span>nausea</span> </li> 
+            <input type="number" placeholder="Enter value" name="nausea">
+            <br> <br>
+
+
+        </ol>
+            </div>
+
+
+        <!-- Form section 3 -->
+        <div class="form-section">
+            <h3>Section 3</h3>
+            <ol>
+                <li> <span>loss_of_appetite</span> </li> 
+                <input type="number" placeholder="Enter value" name="loss_of_appetite">
+                <br> <br>
+
+                <li> <span>abdominal_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="abdominal_pain">
+                <br> <br>
+
+                <li> <span>yellowing_of_eyes</span> </li> 
+                <input type="number" placeholder="Enter value" name="yellowing_of_eyes">
+                <br> <br>
+
+                <li> <span>burning_micturition</span> </li> 
+                <input type="number" placeholder="Enter value" name="burning_micturition">
+                <br> <br>
+
+                <li> <span>spotting_urination</span> </li> 
+                <input type="number" placeholder="Enter value" name="spotting_urination">
+                <br> <br>
+
+                <li> <span>passage_of_gases</span> </li> 
+                <input type="number" placeholder="Enter value" name="passage_of_gases">
+                <br> <br>
+
+                <li> <span>internal_itching</span> </li> 
+                <input type="number" placeholder="Enter value" name="internal_itching">
+                <br> <br>
+
+                <li> <span>indigestion</span> </li> 
+                <input type="number" placeholder="Enter value" name="indigestion">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+        <!-- Form section 4 -->
+        <div class="form-section">
+            <h3>Section 4</h3>
+            <ol>
+                <li> <span>muscle_wasting</span> </li> 
+                <input type="number" placeholder="Enter value" name="muscle_wasting">
+                <br> <br>
+
+                <li> <span>patches_in_throat</span> </li> 
+                <input type="number" placeholder="Enter value" name="patches_in_throat">
+                <br> <br>
+
+                <li> <span>high_fever</span> </li> 
+                <input type="number" placeholder="Enter value" name="high_fever">
+                <br> <br>
+
+                <li> <span>extra_marital_contacts</span> </li> 
+                <input type="number" placeholder="Enter value" name="extra_marital_contacts">
+                <br> <br>
+
+                <li> <span>fatigue</span> </li> 
+                <input type="number" placeholder="Enter value" name="fatigue">
+                <br> <br>
+
+                <li> <span>weight_loss</span> </li> 
+                <input type="number" placeholder="Enter value" name="weight_loss">
+                <br> <br>
+
+                <li> <span>restlessness</span> </li> 
+                <input type="number" placeholder="Enter value" name="restlessness">
+                <br> <br>
+
+                <li> <span>lethargy</span> </li> 
+                <input type="number" placeholder="Enter value" name="lethargy">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+
+        <!-- Form section 5 -->
+        <div class="form-section">
+            <h3>Section 5</h3>
+            <ol>
+                <li> <span>irregular_sugar_level</span> </li> 
+                <input type="number" placeholder="Enter value" name="irregular_sugar_level">
+                <br> <br>
+
+                <li> <span>blurred_and_distorted_vision</span> </li> 
+                <input type="number" placeholder="Enter value" name="blurred_and_distorted_vision">
+                <br> <br>
+
+                <li> <span>obesity</span> </li> 
+                <input type="number" placeholder="Enter value" name="obesity">
+                <br> <br>
+
+                <li> <span>excessive_hunger</span> </li> 
+                <input type="number" placeholder="Enter value" name="excessive_hunger">
+                <br> <br>
+
+                <li> <span>increased_appetite</span> </li> 
+                <input type="number" placeholder="Enter value" name="increased_appetite">
+                <br> <br>
+
+                <li> <span>polyuria</span> </li> 
+                <input type="number" placeholder="Enter value" name="polyuria">
+                <br> <br>
+
+                <li> <span>sunken_eyes</span> </li> 
+                <input type="number" placeholder="Enter value" name="sunken_eyes">
+                <br> <br>
+
+                <li> <span>dehydration</span> </li> 
+                <input type="number" placeholder="Enter value" name="dehydration">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+        <!-- Form section 6 -->
+        <div class="form-section">
+            <h3>Section 6</h3>
+            <ol>
+                <li> <span>diarrhoea</span> </li> 
+                <input type="number" placeholder="Enter value" name="diarrhoea">
+                <br> <br>
+
+                <li> <span>breathlessness</span> </li> 
+                <input type="number" placeholder="Enter value" name="breathlessness">
+                <br> <br>
+
+                <li> <span>family_history</span> </li> 
+                <input type="number" placeholder="Enter value" name="family_history">
+                <br> <br>
+
+                <li> <span>mucoid_sputum</span> </li> 
+                <input type="number" placeholder="Enter value" name="mucoid_sputum">
+                <br> <br>
+
+                <li> <span>headache</span> </li> 
+                <input type="number" placeholder="Enter value" name="headache">
+                <br> <br>
+
+                <li> <span>dizziness</span> </li> 
+                <input type="number" placeholder="Enter value" name="dizziness">
+                <br> <br>
+
+                <li> <span>loss_of_balance</span> </li> 
+                <input type="number" placeholder="Enter value" name="loss_of_balance">
+                <br> <br>
+
+                <li> <span>lack_of_concentration</span> </li> 
+                <input type="number" placeholder="Enter value" name="lack_of_concentration">
+                <br> <br>
+
+            </ol>
+        </div>
+
+        <!-- Form section 7 -->
+        <div class="form-section">
+            <h3>Section 7</h3>
+            <ol>
+                <li> <span>stiff_neck</span> </li> 
+                <input type="number" placeholder="Enter value" name="stiff_neck">
+                <br> <br>
+
+                <li> <span>depression</span> </li> 
+                <input type="number" placeholder="Enter value" name="depression">
+                <br> <br>
+
+                <li> <span>irritability</span> </li> 
+                <input type="number" placeholder="Enter value" name="irritability">
+                <br> <br>
+
+                <li> <span>visual_disturbances</span> </li> 
+                <input type="number" placeholder="Enter value" name="visual_disturbances">
+                <br> <br>
+
+                <li> <span>back_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="back_pain">
+                <br> <br>
+
+                <li> <span>weakness_in_limbs</span> </li> 
+                <input type="number" placeholder="Enter value" name="weakness_in_limbs">
+                <br> <br>
+
+                <li> <span>neck_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="neck_pain">
+                <br> <br>
+
+                <li> <span>weakness_of_one_body_side</span> </li> 
+                <input type="number" placeholder="Enter value" name="weakness_of_one_body_side">
+                <br> <br>
+
+            </ol>
+        </div>
+
+        <!-- Form section 8 -->
+        <div class="form-section">
+            <h3>Section 8</h3>
+            <ol>
+                <li> <span>altered_sensorium</span> </li> 
+                <input type="number" placeholder="Enter value" name="altered_sensorium">
+                <br> <br>
+
+                <li> <span>dark_urine</span> </li> 
+                <input type="number" placeholder="Enter value" name="dark_urine">
+                <br> <br>
+
+                <li> <span>sweating</span> </li> 
+                <input type="number" placeholder="Enter value" name="sweating">
+                <br> <br>
+
+                <li> <span>muscle_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="muscle_pain">
+                <br> <br>
+
+                <li> <span>mild_fever</span> </li> 
+                <input type="number" placeholder="Enter value" name="mild_fever">
+                <br> <br>
+
+                <li> <span>swelled_lymph_nodes</span> </li> 
+                <input type="number" placeholder="Enter value" name="swelled_lymph_nodes">
+                <br> <br>
+
+                <li> <span>malaise</span> </li> 
+                <input type="number" placeholder="Enter value" name="malaise">
+                <br> <br>
+
+                <li> <span>red_spots_over_body</span> </li> 
+                <input type="number" placeholder="Enter value" name="red_spots_over_body">
+                <br> <br>
+
+            </ol>
+        </div>
+
+
+        <!-- Form section 9 -->
+        <div class="form-section">
+            <h3>Section 9</h3>
+            <ol>
+                <li> <span>joint_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="joint_pain">
+                <br> <br>
+
+                <li> <span>pain_behind_the_eyes</span> </li> 
+                <input type="number" placeholder="Enter value" name="pain_behind_the_eyes">
+                <br> <br>
+
+                <li> <span>constipation</span> </li> 
+                <input type="number" placeholder="Enter value" name="constipation">
+                <br> <br>
+
+                <li> <span>toxic_look_typhos</span> </li> 
+                <input type="number" placeholder="Enter value" name="toxic_look_typhos">
+                <br> <br>
+
+                <li> <span>belly_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="belly_pain">
+                <br> <br>
+
+                <li> <span>yellow_urine</span> </li> 
+                <input type="number" placeholder="Enter value" name="yellow_urine">
+                <br> <br>
+
+                <li> <span>receiving_blood_transfusion</span> </li> 
+                <input type="number" placeholder="Enter value" name="receiving_blood_transfusion">
+                <br> <br>
+
+                <li> <span>receiving_unsterile_injections</span> </li> 
+                <input type="number" placeholder="Enter value" name="receiving_unsterile_injections">
+                <br> <br>
+
+            </ol>
+        </div>
+
+
+
+        <!-- Form section 10 -->
+        <div class="form-section">
+            <h3>Section 10</h3>
+            <ol>
+                <li> <span>coma</span> </li> 
+                <input type="number" placeholder="Enter value" name="coma">
+                <br> <br>
+
+                <li> <span>stomach_bleeding</span> </li> 
+                <input type="number" placeholder="Enter value" name="stomach_bleeding">
+                <br> <br>
+
+                <li> <span>acute_liver_failure</span> </li> 
+                <input type="number" placeholder="Enter value" name="acute_liver_failure">
+                <br> <br>
+
+                <li> <span>swelling_of_stomach</span> </li> 
+                <input type="number" placeholder="Enter value" name="swelling_of_stomach">
+                <br> <br>
+
+                <li> <span>distention_of_abdomen</span> </li> 
+                <input type="number" placeholder="Enter value" name="distention_of_abdomen">
+                <br> <br>
+
+                <li> <span>history_of_alcohol_consumption</span> </li> 
+                <input type="number" placeholder="Enter value" name="history_of_alcohol_consumption">
+                <br> <br>
+
+                <li> <span>fluid_overload</span> </li> 
+                <input type="number" placeholder="Enter value" name="fluid_overload">
+                <br> <br>
+
+                <li> <span>phlegm</span> </li> 
+                <input type="number" placeholder="Enter value" name="phlegm">
+                <br> <br>
+
+            </ol>
+        </div>
+
+        <!-- Form section 11 -->
+        <div class="form-section">
+            <h3>Section 11</h3>
+            <ol>
+                <li> <span>blood_in_sputum</span> </li> 
+                <input type="number" placeholder="Enter value" name="blood_in_sputum">
+                <br> <br>
+
+                <li> <span>throat_irritation</span> </li> 
+                <input type="number" placeholder="Enter value" name="throat_irritation">
+                <br> <br>
+
+                <li> <span>redness_of_eyes</span> </li> 
+                <input type="number" placeholder="Enter value" name="redness_of_eyes">
+                <br> <br>
+
+                <li> <span>sinus_pressure</span> </li> 
+                <input type="number" placeholder="Enter value" name="sinus_pressure">
+                <br> <br>
+
+                <li> <span>runny_nose</span> </li> 
+                <input type="number" placeholder="Enter value" name="runny_nose">
+                <br> <br>
+
+                <li> <span>congestion</span> </li> 
+                <input type="number" placeholder="Enter value" name="congestion">
+                <br> <br>
+
+                <li> <span>loss_of_smell</span> </li> 
+                <input type="number" placeholder="Enter value" name="loss_of_smell">
+                <br> <br>
+
+                <li> <span>fast_heart_rate</span> </li> 
+                <input type="number" placeholder="Enter value" name="fast_heart_rate">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+        <!-- Form section 12 -->
+        <div class="form-section">
+            <h3>Section 12</h3>
+            <ol>
+                <li> <span>rusty_sputum</span> </li> 
+                <input type="number" placeholder="Enter value" name="rusty_sputum">
+                <br> <br>
+
+                <li> <span>pain_during_bowel_movements</span> </li> 
+                <input type="number" placeholder="Enter value" name="pain_during_bowel_movements">
+                <br> <br>
+
+                <li> <span>pain_in_anal_region</span> </li> 
+                <input type="number" placeholder="Enter value" name="pain_in_anal_region">
+                <br> <br>
+
+                <li> <span>bloody_stool</span> </li> 
+                <input type="number" placeholder="Enter value" name="bloody_stool">
+                <br> <br>
+
+                <li> <span>irritation_in_anus</span> </li> 
+                <input type="number" placeholder="Enter value" name="irritation_in_anus">
+                <br> <br>
+
+                <li> <span>cramps</span> </li> 
+                <input type="number" placeholder="Enter value" name="cramps">
+                <br> <br>
+
+                <li> <span>bruising</span> </li> 
+                <input type="number" placeholder="Enter value" name="bruising">
+                <br> <br>
+
+                <li> <span>swollen_legs</span> </li> 
+                <input type="number" placeholder="Enter value" name="swollen_legs">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+        <!-- Form section 13 -->
+        <div class="form-section">
+            <h3>Section 13</h3>
+            <ol>
+                <li> <span>swollen_blood_vessels</span> </li> 
+                <input type="number" placeholder="Enter value" name="swollen_blood_vessels">
+                <br> <br>
+
+                <li> <span>prominent_veins_on_calf</span> </li> 
+                <input type="number" placeholder="Enter value" name="prominent_veins_on_calf">
+                <br> <br>
+
+                <li> <span>weight_gain</span> </li> 
+                <input type="number" placeholder="Enter value" name="weight_gain">
+                <br> <br>
+
+                <li> <span>cold_hands_and_feets</span> </li> 
+                <input type="number" placeholder="Enter value" name="cold_hands_and_feets">
+                <br> <br>
+
+                <li> <span>mood_swings</span> </li> 
+                <input type="number" placeholder="Enter value" name="mood_swings">
+                <br> <br>
+
+                <li> <span>puffy_face_and_eyes</span> </li> 
+                <input type="number" placeholder="Enter value" name="puffy_face_and_eyes">
+                <br> <br>
+
+                <li> <span>enlarged_thyroid</span> </li> 
+                <input type="number" placeholder="Enter value" name="enlarged_thyroid">
+                <br> <br>
+
+                <li> <span>brittle_nails</span> </li> 
+                <input type="number" placeholder="Enter value" name="brittle_nails">
+                <br> <br>
+
+
+            </ol>
+        </div>
+
+
+        <!-- Form section 14 -->
+        <div class="form-section">
+            <h3>Section 14</h3>
+            <ol>
+                <li> <span>swollen_extremities</span> </li> 
+                <input type="number" placeholder="Enter value" name="swollen_extremities">
+                <br> <br>
+
+                <li> <span>abnormal_menstruation</span> </li> 
+                <input type="number" placeholder="Enter value" name="abnormal_menstruation">
+                <br> <br>
+
+                <li> <span>muscle_weakness</span> </li> 
+                <input type="number" placeholder="Enter value" name="muscle_weakness">
+                <br> <br>
+
+                <li> <span>anxiety</span> </li> 
+                <input type="number" placeholder="Enter value" name="anxiety">
+                <br> <br>
+
+                <li> <span>slurred_speech</span> </li> 
+                <input type="number" placeholder="Enter value" name="slurred_speech">
+                <br> <br>
+
+                <li> <span>palpitations</span> </li> 
+                <input type="number" placeholder="Enter value" name="palpitations">
+                <br> <br>
+
+                <li> <span>drying_and_tingling_lips</span> </li> 
+                <input type="number" placeholder="Enter value" name="drying_and_tingling_lips">
+                <br> <br>
+
+                <li> <span>knee_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="knee_pain">
+                <br> <br>
+
+            </ol>
+        </div>
+
+        <!-- Form section 15 -->
+        <div class="form-section">
+            <h3>Section 15</h3>
+            <ol>
+                <li> <span>hip_joint_pain</span> </li> 
+                <input type="number" placeholder="Enter value" name="hip_joint_pain">
+                <br> <br>
+
+                <li> <span>swelling_joints</span> </li> 
+                <input type="number" placeholder="Enter value" name="swelling_joints">
+                <br> <br>
+
+                <li> <span>painful_walking</span> </li> 
+                <input type="number" placeholder="Enter value" name="painful_walking">
+                <br> <br>
+
+                <li> <span>movement_stiffness</span> </li> 
+                <input type="number" placeholder="Enter value" name="movement_stiffness">
+                <br> <br>
+
+                <li> <span>spinning_movements</span> </li> 
+                <input type="number" placeholder="Enter value" name="spinning_movements">
+                <br> <br>
+
+                <li> <span>unsteadiness</span> </li> 
+                <input type="number" placeholder="Enter value" name="unsteadiness">
+                <br> <br>
+
+                <li> <span>pus_filled_pimples</span> </li> 
+                <input type="number" placeholder="Enter value" name="pus_filled_pimples">
+                <br> <br>
+
+                <li> <span>blackheads</span> </li> 
+                <input type="number" placeholder="Enter value" name="blackheads">
+                <br> <br>
+            </ol>
+        </div>
+
+        <!-- Form section 16 -->
+        <div class="form-section">
+            <h3>Section 16</h3>
+            <ol>
+                <li> <span>scurrying</span> </li> 
+                <input type="number" placeholder="Enter value" name="scurrying">
+                <br> <br>
+
+                <li> <span>bladder_discomfort</span> </li> 
+                <input type="number" placeholder="Enter value" name="bladder_discomfort">
+                <br> <br>
+
+                <li> <span>foul_smell_of_urine</span> </li> 
+                <input type="number" placeholder="Enter value" name="foul_smell_of_urine">
+                <br> <br>
+
+                <li> <span>continuous_feel_of_urine</span> </li> 
+                <input type="number" placeholder="Enter value" name="continuous_feel_of_urine">
+                <br> <br>
+
+                <li> <span>skin_peeling</span> </li> 
+                <input type="number" placeholder="Enter value" name="skin_peeling">
+                <br> <br>
+
+                <li> <span>silver_like_dusting</span> </li> 
+                <input type="number" placeholder="Enter value" name="silver_like_dusting">
+                <br> <br>
+
+                <li> <span>small_dents_in_nails</span> </li> 
+                <input type="number" placeholder="Enter value" name="small_dents_in_nails">
+                <br> <br>
+
+                <li> <span>inflammatory_nails</span> </li> 
+                <input type="number" placeholder="Enter value" name="inflammatory_nails">
+                <br> <br>
+            </ol>
+        </div>
+
+
+        <!-- Form section 17 -->
+        <div class="form-section">
+            <h3>Section 17</h3>
+            <ol>
+                <li> <span>blister</span> </li> 
+                <input type="number" placeholder="Enter value" name="blister">
+                <br> <br>
+
+                <li> <span>red_sore_around_nose</span> </li> 
+                <input type="number" placeholder="Enter value" name="red_sore_around_nose">
+                <br> <br>
+
+                <li> <span>yellow_crust_ooze</span> </li> 
+                <input type="number" placeholder="Enter value" name="yellow_crust_ooze">
+                <br> <br>
+            </ol>
+        </div>
+
+        <div class="form-group m-5" style="position: relative; top: 150px; left: 150px;">
+            <input type="submit" name="submit" value="Submit" class="btn btn-md"><br>
+            <input id="fillRandomButton" class="btn btn-md mt-2" type="button" value="Fill Random Values">
+        </div>
+    </form>
+   
+</div>
+<script>
+    // Move focus to the next or previous input on pressing Enter or Backspace
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === 'Alt') {
+            event.preventDefault();
+            const activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                const form = activeElement.closest('form');
+                const inputs = Array.from(form.querySelectorAll('input'));
+                const currentIndex = inputs.indexOf(activeElement);
+                let newIndex;
+
+                if (event.key === 'Enter') {
+                    newIndex = (currentIndex + 1) % inputs.length;
+                } else if (event.key === 'Alt') {
+                    newIndex = (currentIndex - 1 + inputs.length) % inputs.length;
+                }
+
+                inputs[newIndex].focus();
+            }
+        }
+    });
+
+    // Function to fill inputs with random values of 0 and 1
+    function fillRandomValues() {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            const randomValue = Math.floor(Math.random() * 2); // Generates 0 or 1
+            input.value = randomValue;
+        });
+    }
+
+    // Attach event listener to the button
+    const fillRandomButton = document.getElementById('fillRandomButton');
+    fillRandomButton.addEventListener('click', fillRandomValues);
+</script>
+</body>
+</html>

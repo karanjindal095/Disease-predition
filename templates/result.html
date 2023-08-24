@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease</title>
+    <style>
+    
+    .centered-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .background-container {
+        /* background-color: black; */
+        background-color: #007bff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    h1, h3 {
+        margin: 0;
+        /* color: goldenrod; */
+        /* color: rgb(255, 183, 0); */
+        color: white;
+    }
+
+    body {
+        /* background-image: url(https://static.scientificamerican.com/sciam/cache/file/01C9741F-6F6D-4882-8217D92370325AA7_source.jpg); */
+        background-image: url('{{ url_for("static", filename="result.png") }}');
+
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        /* filter: blur(100px); */
+    }
+
+    .btn-container {
+        margin-top: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="centered-container">
+       <div class="background-container">
+           <h1 style="font-size: 60px;"><b>Disease :</b></h1>
+           <h3><b>{{ output }}</b></h3>
+       </div>
+            <div class="btn-container">
+                <a href="http://127.0.0.1:5000/"  class="btn btn-md">Back</a>
+            </div>
+    </div>
+    
+</body>
+</html>
