@@ -59,38 +59,6 @@ def prediction():
 
     return render_template('result.html', output=Disease)
 
-# ...
-
-# ...
-
-# @app.route('/prediction', methods=['POST'])
-# def prediction():
-#     user_symptoms = [request.form[symptom] for symptom in disease_symptoms[:-1]]
-    
-#     # Convert symptom data to numeric format using one-hot encoding
-#     encoded_symptoms = np.zeros(len(disease_symptoms) - 1)
-#     num_ones = 0  # Count the number of symptom values that are 1
-#     for i, symptom in enumerate(user_symptoms):
-#         if symptom == '1':
-#             encoded_symptoms[i] = 1
-#             num_ones += 1
-#         elif symptom != '0':  # Handle invalid inputs
-#             return render_template('result.html', output="Invalid input detected.")
-
-#     # Determine the threshold for considering no disease detected
-#     threshold = len(user_symptoms) * 0.5  # Adjust as needed
-
-#     # Check if all/most symptoms are 0
-#     if num_ones <= threshold:
-#         return render_template('result.html', output="No disease detected. If symptoms persist, consult a doctor.")
-
-#     # Predict disease using the loaded model
-#     Disease = loadedmodel.predict([encoded_symptoms])[0]
-
-#     return render_template('result.html', output=Disease)
-
-# # ...
-
 # Main function
 if __name__ == '__main__':
     app.run(debug=True)
